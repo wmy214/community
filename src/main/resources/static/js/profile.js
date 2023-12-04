@@ -4,7 +4,12 @@ $(function(){
 
 function follow() {
 	var btn = this;
-	console.log("11111111111111");
+	//发送AJAX请求之前，将CSRF令牌设置到请求的消息头中
+//    var token = $("meta[name='_csrf']").attr("content");
+//    var header = $("meta[name='_csrf_header']").attr("content");
+//    $(document).ajaxSend(function(e, xhr, options) {
+//        xhr.setRequestHeader(header, token);
+//    });
 	if($(btn).hasClass("btn-info")) {
 	    console.log("2222222222");
 		// 关注TA
@@ -14,7 +19,7 @@ function follow() {
 		    function(data) {
 		        data = $.parseJSON(data);
 		        if(data.code == 0) {
-		            window.location.reload();
+//		            window.location.reload();
 		        } else {
 		            alert(data.msg);
 		        }
@@ -30,7 +35,7 @@ function follow() {
             function(data) {
                 data = $.parseJSON(data);
                 if(data.code == 0) {
-                    window.location.reload();
+//                    window.location.reload();
                 } else {
                     alert(data.msg);
                 }
